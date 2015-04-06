@@ -22,7 +22,7 @@ description: a `string` representing the name of the resource group this App Ser
 
 #####Location
 description: a `string` representing the geographical location of the App Service Web App.  
-allowed values: 
+known allowed values: 
 ```PowerShell
 PS C:\> AzureResourceManager\Get-AzureLocation |
     ?{$_.Name -eq 'Microsoft.Web/sites'} |
