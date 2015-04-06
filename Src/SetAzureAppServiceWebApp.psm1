@@ -30,12 +30,7 @@ function Invoke(
     [Parameter(
         Mandatory=$true,
         ValueFromPipelineByPropertyName=$true)]
-    $AppServicePlanName,
-
-    [PSCustomObject[]]
-    [Parameter(
-        ValueFromPipelineByPropertyName=$true)]
-    $Tag
+    $AppServicePlanName
 ){
 
     $ApiVersion = '2014-04-01'
@@ -45,20 +40,13 @@ function Invoke(
 
     # build up property Hashtable from parameters
     $Properties = @{'serverFarm'=$AppServicePlanName}
-
-    # build up tag Hashtable from tag PSCustomObject
-    $TagHashtable = @{}
-    if($Tag){
-        $Tag.PSObject.Properties | %{$TagHashtable[$_.Name]=$_.Value}
-    }
-
+    
     If(!(AzureResourceManager\Get-AzureResource | ?{($_.Name -eq $Name) -and ($_.ResourceGroupName -eq $ResourceGroupName) -and ($_.Location -eq $WhitespaceStrippedLocation)})){
         AzureResourceManager\New-AzureResource `
         -Location $Location `
         -Name $Name `
         -ResourceGroupName $ResourceGroupName `
         -ResourceType $ResourceType `
-        -Tag $TagHashtable `
         -ApiVersion $ApiVersion `
         -PropertyObject $Properties
     }
@@ -67,7 +55,6 @@ function Invoke(
         -Name $Name `
         -ResourceGroupName $ResourceGroupName `
         -ResourceType $ResourceType `
-        -Tag $TagHashtable `
         -ApiVersion $ApiVersion `
         -PropertyObject $Properties
     }
