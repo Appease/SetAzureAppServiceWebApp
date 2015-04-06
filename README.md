@@ -9,7 +9,7 @@ An [Appease](http://appease.io) task template that sets an [Azure App Service We
 ```PowerShell
 Add-AppeaseTask `
     -DevOpName YOUR-DEVOP-NAME `
-    -TemplateId SetAzureAppServicePlan
+    -TemplateId SetAzureAppServiceWebApp
 ```
 
 ####What parameters are required?
