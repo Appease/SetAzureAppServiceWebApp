@@ -22,18 +22,7 @@ description: a `string` representing the name of the resource group this App Ser
 
 #####Location
 description: a `string` representing the geographical location of the App Service Web App.  
-known allowed values: 
-```PowerShell
-PS C:\> AzureResourceManager\Get-AzureLocation |
-    ?{$_.Name -eq 'Microsoft.Web/sites'} |
-    select LocationsString |
-    ft -Wrap    
-
-LocationsString                                                                                 
----------------                                                                                 
-Brazil South, East Asia, East US, Japan East, Japan West, North Central US, North Europe, South 
-Central US, West Europe, West US, Southeast Asia, Central US, East US 2 
-```
+known allowed values: `Brazil South`, `East Asia`, `East US`, `Japan East`, `Japan West`, `North Central US`, `North Europe`, `South Central US`, `West Europe`, `West US`, `Southeast Asia`, `Central US`, `East US 2`
 
 #####AppServicePlanName
 description: a `string` representing the name of the App Service plan this App Service Web App will be added to.
