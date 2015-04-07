@@ -59,12 +59,12 @@ function Invoke(
 
         # Azure returns location strings with whitespace stripped
         $WhitespaceStrippedLocation = $Location -replace '\s', ''
-        if($ExistingAzureAppServicePlan.Location -ne $WhitespaceStrippedLocation){            
+        if($ExistingAzureAppServiceWebApp.Location -ne $WhitespaceStrippedLocation){            
             throw "Changing an App Service WebApp location is (currently) unsupported"
         }
 
         # handle resource group
-        If($ExistingAzureSqlDatabaseServerResource.ResourceGroupName -ne $ResourceGroupName){
+        If($ExistingAzureAppServiceWebApp.ResourceGroupName -ne $ResourceGroupName){
             
             throw "Changing an App Service WebApp resource group is (currently) unsupported"
 
